@@ -2,16 +2,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: tes2
+  name: helloworld-gke
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hello
+      role: frontend
+      env: production
   template:
     metadata:
       labels:
         app: hello
+        role: frontend
+        env: production
     spec:
       containers:
       - name: hello-app
