@@ -2,17 +2,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: test2
-  env: canary
+  name: helloworld-gke-canary
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hello
+      role: frontend
+      env: canary
   template:
     metadata:
       labels:
         app: hello
+        role: frontend
+        env: canary
     spec:
       containers:
       - name: hello-app
